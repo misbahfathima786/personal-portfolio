@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "title": "AI DSA Tutor",
+        "description": "An AI-based platform that helps students learn and practice Data Structures and Algorithms.",
+        "technologies": [
+            "Python",
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "AI"
+        ],
+        "github": "https://github.com/deeksha31005-spec/AI-DSA-Tutor.git",
+        "live": "https://ai-dsa-tutor-xttcrtgy7kavje5n62mypq.streamlit.app/#problem"
+    },
+    {
+        "id": 2,
+        "title": "Browser Extension Privacy Analyzer",
+        "description": "A privacy-focused browser extension that analyzes extension permissions and highlights potential privacy risks through a simple, user-friendly interface.",
+        "technologies": [
+            "HTML",
+            "CSS", 
+            "JavaScript", 
+            "JSON", 
+            "Browser Extension APIs"
+        ],
+        "github": "https://github.com/misbahfathima786/browser-extension-privacy-analyzer.git",
+        "live": "https://browser-extension-privacy-analyzer-6atzjah6v.vercel.app"
+    }
+]

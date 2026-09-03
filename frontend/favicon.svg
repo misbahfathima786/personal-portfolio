@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 100 100">
+
+    <rect
+        width="100"
+        height="100"
+        rx="22"
+        fill="#7c5cff"
+    />
+
+    <text
+        x="50"
+        y="63"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="38"
+        font-weight="bold"
+        fill="white">
+        MF
+    </text>
+
+</svg>
