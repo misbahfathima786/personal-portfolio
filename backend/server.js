@@ -1,9 +1,24 @@
+require("dotenv").config();
+const { MongoClient } = require("mongodb");
+
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
 const app = express();
+const client = new MongoClient(process.env.MONGODB_URI);
 
+let messagesCollection;
+
+async function connectToDatabase() {
+    await client.connect();
+
+    const database = client.db("portfolio");
+
+    messagesCollection = database.collection("messages");
+
+    console.log("Connected to MongoDB");
+}
 const PORT = process.env.PORT || 3000;
 const dataPath = path.join(__dirname, "data");
 app.use(express.json());
@@ -55,37 +70,47 @@ app.get("/api/skills", (req, res) => {
 
 });
 
-app.post("/api/contact", (req, res) => {
+app.post("/api/contact", async (req, res) => {
 
-    const data = fs.readFileSync(
-        path.join(dataPath, "messages.json"),
-        "utf-8"
-    );
+    try {
 
-    const messages = JSON.parse(data);
+        const { name, email, message } = req.body;
 
-    const newMessage = {
-        id: Date.now(),
-        name: req.body.name,
-        email: req.body.email,
-        message: req.body.message
-    };
+        if (!name || !email || !message) {
+            return res.status(400).json({
+                message: "All fields are required."
+            });
+        }
 
-    messages.push(newMessage);
+        await messagesCollection.insertOne({
+            name: name,
+            email: email,
+            message: message,
+            createdAt: new Date()
+        });
 
-    fs.writeFileSync(
-        path.join(dataPath, "messages.json"),
-        JSON.stringify(messages, null, 4)
-    );
+        res.json({
+            message: "Your message has been received successfully!"
+        });
 
-    res.json({
-        message: "Your message has been received successfully!"
+    } catch (error) {
+
+        console.error("Error saving contact message:", error);
+
+        res.status(500).json({
+            message: "Unable to send your message right now."
+        });
+
+    }
+
+});
+connectToDatabase()
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`Server running at http://localhost:${PORT}`);
+        });
+    })
+    .catch(error => {
+        console.error("Database connection failed:", error);
+        process.exit(1);
     });
-
-});
-
-app.listen(PORT, () => {
-
-    console.log(`Server running at http://localhost:${PORT}`);
-
-});

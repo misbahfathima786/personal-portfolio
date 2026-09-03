@@ -1196,3 +1196,295 @@ footer {
     gap: 20px;
     flex-wrap: wrap;
 }
+
+/* ================= NAVBAR FINAL POLISH ================= */
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Navigation links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-left: auto;
+}
+
+/* Theme button */
+.theme-toggle {
+    margin-left: 40px;
+    flex-shrink: 0;
+}
+
+/* Keep mobile menu button on the right */
+.menu-toggle {
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+
+    .nav-links {
+        margin-left: 0;
+    }
+
+    .theme-toggle {
+        margin-left: 0;
+    }
+
+}
+
+/* ================= NAVBAR BUTTON DESIGN ================= */
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation buttons */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+}
+
+/* Each navigation link */
+.nav-links a {
+    display: block;
+    padding: 9px 16px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Theme button pushed to the extreme right */
+.theme-toggle {
+    margin-left: 40px;
+    flex-shrink: 0;
+}
+
+/* ================= MOBILE NAVBAR ================= */
+
+@media (max-width: 768px) {
+
+    .nav-links {
+        margin-left: 0;
+        gap: 5px;
+    }
+
+    .nav-links a {
+        padding: 12px 15px;
+    }
+
+    .theme-toggle {
+        margin-left: 0;
+    }
+
+}
+
+.nav-container {
+    max-width: 1400px;
+    width: 100%;
+}
+
+/* ================= EXPERIENCE SECTION ================= */
+
+#experience {
+    text-align: center;
+}
+
+.experience-container {
+    max-width: 900px;
+    margin: 30px auto 0;
+}
+
+.experience-card {
+    text-align: left;
+    padding: 28px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.experience-card h3 {
+    margin-bottom: 6px;
+    color: var(--primary-color);
+}
+
+.experience-card h4 {
+    margin: 0;
+    font-weight: 500;
+    color: var(--secondary-text);
+}
+
+.experience-date {
+    white-space: nowrap;
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--secondary-text);
+}
+
+.experience-details {
+    padding-left: 20px;
+    color: var(--secondary-text);
+    line-height: 1.7;
+}
+
+.experience-details li {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+
+    .experience-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .experience-date {
+        align-self: flex-start;
+    }
+
+    .experience-card {
+        padding: 20px;
+    }
+
+}
+
+/* ================= SECTION INTRO ================= */
+
+.section-intro {
+    max-width: 700px;
+    margin: 10px auto 30px;
+    text-align: center;
+    color: var(--secondary-text);
+    line-height: 1.7;
+}
+
+/* ================= MOBILE MENU FINAL FIX ================= */
+
+@media (max-width: 768px) {
+
+    .nav-container {
+        position: relative;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+        margin: 15px 0 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .theme-toggle {
+        margin-left: 0;
+    }
+
+}
+/* ================= MOBILE NAVBAR FINAL LAYOUT ================= */
+
+@media (max-width: 768px) {
+
+    .nav-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Logo stays on the left */
+    .logo {
+        order: 1;
+    }
+
+    /* Sun/Moon goes to the right */
+    .theme-toggle {
+        order: 2;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    /* Menu button comes immediately after sun/moon */
+    .menu-toggle {
+        order: 3;
+        margin-left: 12px;
+        flex-shrink: 0;
+    }
+
+    /* Navigation menu goes below the header */
+    .nav-links {
+        order: 4;
+        flex-basis: 100%;
+        width: 100%;
+        margin: 15px 0 0;
+        padding: 0;
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* Show menu when hamburger is clicked */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        padding: 12px 15px;
+    }
+
+}
